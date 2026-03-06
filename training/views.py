@@ -24,6 +24,23 @@ def register(request):
 
 
 @login_required
+def dashboard(request):
+    sessions = TrainingSession.objects.filter(user=request.user)
+
+    total_sessions = sessions.count()
+    best_60 = sessions.filter(distance_m=60).order_by('time_seconds').first()
+    best_100 = sessions.filter(distance_m=100).order_by('time_seconds').first()
+    recent_sessions = sessions.order_by('-date')[:5]
+
+    return render(request, 'training/dashboard.html', {
+        'total_sessions': total_sessions,
+        'best_60': best_60,
+        'best_100': best_100,
+        'recent_sessions': recent_sessions,
+    })
+
+
+@login_required
 def session_list(request):
     sessions = TrainingSession.objects.filter(user=request.user).order_by('-date')
     return render(request, 'training/session_list.html', {'sessions': sessions})
@@ -68,19 +85,3 @@ def session_delete(request, id):
         return redirect('session_list')
 
     return render(request, 'training/session_delete.html', {'session': session})
-
-@login_required
-def dashboard(request):
-    sessions = TrainingSession.objects.filter(user=request.user)
-
-    total_sessions = sessions.count()
-    best_60 = sessions.filter(distance_m=60).order_by('time_seconds').first()
-    best_100 = sessions.filter(distance_m=100).order_by('time_seconds').first()
-    recent_sessions = sessions.order_by('-date')[:5]
-
-    return render(request, 'training/dashboard.html', {
-        'total_sessions': total_sessions,
-        'best_60': best_60,
-        'best_100': best_100,
-        'recent_sessions': recent_sessions,
-    })

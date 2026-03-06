@@ -1,0 +1,21 @@
+{% extends 'training/base.html' %}
+
+{% block title %}Registro{% endblock %}
+
+{% block content %}
+
+<h1>Crear cuenta</h1>
+
+<form method="post" class="card p-4">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button type="submit" class="btn btn-primary">
+Registrarse
+</button>
+
+</form>
+
+{% endblock %}

@@ -3,20 +3,22 @@
 {% block title %}Eliminar entrenamiento{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Eliminar entrenamiento</h1>
+<h1 class="section-title">Eliminar entrenamiento</h1>
 
-<p>¿Seguro que quieres borrar este entrenamiento?</p>
+<div class="custom-card p-4">
+    <p>¿Seguro que quieres borrar este entrenamiento?</p>
 
-<ul>
-    <li>Fecha: {{ session.date }}</li>
-    <li>Tipo: {{ session.get_session_type_display }}</li>
-    <li>Distancia: {{ session.distance_m }} m</li>
-    <li>Tiempo: {{ session.time_seconds }} s</li>
-</ul>
+    <ul>
+        <li>Fecha: {{ session.date }}</li>
+        <li>Tipo: {{ session.get_session_type_display }}</li>
+        <li>Distancia: {{ session.distance_m }} m</li>
+        <li>Tiempo: {{ session.time_seconds }} s</li>
+    </ul>
 
-<form method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Sí, borrar</button>
-    <a href="{% url 'session_list' %}" class="btn btn-secondary">Cancelar</a>
-</form>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sí, borrar</button>
+        <a href="{% url 'session_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
 {% endblock %}

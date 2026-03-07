@@ -3,14 +3,18 @@
 {% block title %}Inicio{% endblock %}
 
 {% block content %}
-<h1>SprintTrack</h1>
-<p>App para registrar y analizar entrenamientos de velocidad.</p>
+<div class="hero-card">
+    <h1 class="hero-title">SprintTrack</h1>
+    <p class="hero-text">
+        Registra, organiza y analiza tus entrenamientos de velocidad en una app simple, limpia y potente.
+    </p>
 
-{% if user.is_authenticated %}
-    <a class="btn btn-primary me-2" href="{% url 'dashboard' %}">Ir al dashboard</a>
-    <a class="btn btn-success" href="{% url 'session_create' %}">Añadir entrenamiento</a>
-{% else %}
-    <a class="btn btn-primary me-2" href="{% url 'login' %}">Iniciar sesión</a>
-    <a class="btn btn-success" href="{% url 'register' %}">Registrarse</a>
-{% endif %}
+    {% if user.is_authenticated %}
+        <a class="btn btn-dark btn-lg me-2" href="{% url 'dashboard' %}">Ir al dashboard</a>
+        <a class="btn btn-success btn-lg" href="{% url 'session_create' %}">Añadir entrenamiento</a>
+    {% else %}
+        <a class="btn btn-dark btn-lg me-2" href="{% url 'login' %}">Iniciar sesión</a>
+        <a class="btn btn-success btn-lg" href="{% url 'register' %}">Crear cuenta</a>
+    {% endif %}
+</div>
 {% endblock %}

@@ -1,0 +1,118 @@
+body {
+    background: linear-gradient(to bottom right, #f4f7fb, #e9eef5);
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.custom-navbar {
+    background: linear-gradient(90deg, #111827, #1f2937);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+    letter-spacing: 0.5px;
+}
+
+.welcome-text {
+    font-size: 0.95rem;
+    opacity: 0.95;
+}
+
+.nav-btn {
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-weight: 600;
+}
+
+.hero-card,
+.custom-card {
+    background: white;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.hero-card {
+    padding: 3rem;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+.hero-text {
+    color: #4b5563;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    height: 100%;
+}
+
+.stat-title {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+}
+
+.soft-list .list-group-item {
+    border: none;
+    border-bottom: 1px solid #eef2f7;
+    padding: 1rem 0.5rem;
+}
+
+.soft-list .list-group-item:last-child {
+    border-bottom: none;
+}
+
+.form-card {
+    background: white;
+    border: none;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+    border-radius: 12px;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-card label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: block;
+    color: #374151;
+}
+
+.empty-text {
+    color: #6b7280;
+    margin: 0;
+}

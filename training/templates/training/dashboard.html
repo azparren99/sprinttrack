@@ -3,55 +3,55 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Dashboard</h1>
+<h1 class="section-title">Dashboard</h1>
 
-<div class="row">
+<div class="row g-4 mb-4">
     <div class="col-md-4">
-        <div class="card shadow-sm p-3 mb-3">
-            <h4>Total entrenamientos</h4>
-            <p class="fs-3 mb-0">{{ total_sessions }}</p>
+        <div class="stat-card">
+            <p class="stat-title">Total entrenamientos</p>
+            <p class="stat-value">{{ total_sessions }}</p>
         </div>
     </div>
 
     <div class="col-md-4">
-        <div class="card shadow-sm p-3 mb-3">
-            <h4>Mejor 60m</h4>
+        <div class="stat-card">
+            <p class="stat-title">Mejor 60m</p>
             {% if best_60 %}
-                <p class="fs-3 mb-0">{{ best_60.time_seconds }} s</p>
+                <p class="stat-value">{{ best_60.time_seconds }} s</p>
             {% else %}
-                <p class="mb-0">Sin datos</p>
+                <p class="empty-text">Sin datos</p>
             {% endif %}
         </div>
     </div>
 
     <div class="col-md-4">
-        <div class="card shadow-sm p-3 mb-3">
-            <h4>Mejor 100m</h4>
+        <div class="stat-card">
+            <p class="stat-title">Mejor 100m</p>
             {% if best_100 %}
-                <p class="fs-3 mb-0">{{ best_100.time_seconds }} s</p>
+                <p class="stat-value">{{ best_100.time_seconds }} s</p>
             {% else %}
-                <p class="mb-0">Sin datos</p>
+                <p class="empty-text">Sin datos</p>
             {% endif %}
         </div>
     </div>
 </div>
 
-<div class="card shadow-sm p-3">
-    <h4 class="mb-3">Últimos entrenamientos</h4>
+<div class="custom-card p-4">
+    <h3 class="mb-3">Últimos entrenamientos</h3>
 
     {% if recent_sessions %}
-        <ul class="list-group">
+        <ul class="list-group soft-list">
             {% for session in recent_sessions %}
-                <li class="list-group-item">
-                    <strong>{{ session.date }}</strong> |
-                    {{ session.get_session_type_display }} |
-                    {{ session.distance_m }} m |
+                <li class="list-group-item bg-transparent">
+                    <strong>{{ session.date }}</strong> ·
+                    {{ session.get_session_type_display }} ·
+                    {{ session.distance_m }} m ·
                     {{ session.time_seconds }} s
                 </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p class="mb-0">No hay entrenamientos todavía.</p>
+        <p class="empty-text">No hay entrenamientos todavía.</p>
     {% endif %}
 </div>
 {% endblock %}
